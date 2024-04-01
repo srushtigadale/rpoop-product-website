@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+<div class="text-center">
+  <div>
+    <h2><br><br> Welcome to our ultimate search page! </h2>
+    <p>Compare items from all your favorite websites in one spot! 🛍️💻</p>
+    <p>Find the best deals, latest trends, and top-rated products effortlessly. 💫</p>
+    <p>Why hop around when you can shop smart? Let's get started! 🚀<br><br></p>
+  </div>
+</div>
+
+<div class="text-center">
+  <form class="search-box" action="#" method="post">
+    <div class="input-group mb-3">
+      <input type ="text" name="nm" class="form-control rounded-pill" placeholder="Search..." aria-label="Search" aria-describedby="search-icon"/>
+      <div class="input-group-append">
+        <button class="btn btn-primary rounded-pill" type="submit" id="search-icon"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+</div>
+ 
+{% endblock content %}

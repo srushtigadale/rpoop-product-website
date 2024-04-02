@@ -13,12 +13,145 @@
 <div class="text-center">
   <form class="search-box" action="#" method="post">
     <div class="input-group mb-3">
-      <input type ="text" name="nm" class="form-control rounded-pill" placeholder="Search..." aria-label="Search" aria-describedby="search-icon"/>
+      <input type="text" name="nm" class="form-control rounded-pill" placeholder="Search..." aria-label="Search" aria-describedby="search-icon"/>
       <div class="input-group-append">
         <button class="btn btn-primary rounded-pill" type="submit" id="search-icon"><i class="fas fa-search"></i></button>
       </div>
     </div>
   </form>
 </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .rating {
+            display: flex;
+        }
+        .rating span {
+            cursor: pointer;
+        }
+        .rating span input {
+            display: none;
+        }
+        .rating span label {
+            font-size: 20px;
+            color: #ccc;
+        }
+        .rating span:hover ~ span label,
+        .rating span:hover label,
+        .rating span input:checked ~ label {
+            color: #f90;
+        }
+    </style>
+</head>
+<body>
+  <div class="text-left">
+    <h5>Customer reviews:</h5>
+    <div class="rating">
+        <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"><i class="fas fa-star"></i></label></span>
+        <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"><i class="fas fa-star"></i></label></span>
+        <span><input type="radio" name="rating" id="str3" value="3"><label for="str3"><i class="fas fa-star"></i></label></span>
+        <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"><i class="fas fa-star"></i></label></span>
+        <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"><i class="fas fa-star"></i></label></span>
+    </div>
+  </div>
+    <!-- Hidden input to store the selected rating -->
+    <input type="hidden" name="userRating" id="userRating">
+    <script>
+        const ratingInputs = document.querySelectorAll('.rating input');
+        ratingInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                const userRating = input.value;
+                document.getElementById('userRating').value = userRating;
+                alert(`Minimum Rating is ${userRating} stars!`);
+            });
+        });
+    </script>
+</body>
+</html>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="custom-wrapper">
+
+            <div class="text-left">
+                <h5>
+                    Price Range:
+                </h5>
+            </div>
+
+            <div class="price-input-container">
+                <div class="price-input">
+                    <div class="price-field">
+                        <span>Minimum Price</span>
+                        <input type="number" class="min-input" value="2500">
+                    </div>
+                    <br>
+                    <div class="price-field">
+                        <span>Maximum Price</span>
+                        <input type="number" class="max-input" value="8500">
+                    </div>
+                    <br>
+                </div>
+                <div class="slider-container">
+                    <div class="price-slider">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider -->
+            <div class="range-input">
+                <input type="range" class="min-range" min="0" max="10000" value="2500" step="1">
+                <input type="range" class="max-range" min="0" max="10000" value="8500" step="1">
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the input elements and slider
+        const minInput = document.querySelector('.min-input');
+        const maxInput = document.querySelector('.max-input');
+        const minRange = document.querySelector('.min-range');
+        const maxRange = document.querySelector('.max-range');
+
+        // Function to update input fields when slider is moved
+        const updateInputs = () => {
+            minInput.value = minRange.value;
+            maxInput.value = maxRange.value;
+        };
+
+        // Function to update slider when input fields are changed
+        const updateRange = () => {
+            minRange.value = minInput.value;
+            maxRange.value = maxInput.value;
+        };
+
+        // Add event listeners to update inputs and slider
+        minRange.addEventListener('input', updateInputs);
+        maxRange.addEventListener('input', updateInputs);
+        minInput.addEventListener('input', updateRange);
+        maxInput.addEventListener('input', updateRange);
+    </script>
+</body>
+
+</html>
+
+{% endblock %}
+
  
-{% endblock content %}

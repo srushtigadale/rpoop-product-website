@@ -34,6 +34,7 @@ def results_page(str):
             filtered_and_sorted_list.append(entry)
 
     sorted_list = sorted(filtered_and_sorted_list, key=lambda x: x['price'])
+    print(sorted_list)
     return render_template('results.html', products=sorted_list)
     
 

@@ -1,7 +1,7 @@
 Flask
 gunicorn 
-BeautifulSoup
+beautifulsoup4
 requests
-csv
+python-csv
 pandas 
 numpy 

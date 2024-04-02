@@ -1,0 +1,7 @@
+Flask
+gunicorn 
+BeautifulSoup
+requests
+csv
+pandas 
+numpy 
